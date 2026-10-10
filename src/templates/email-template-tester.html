@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Template Tester - J&M Power Washing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f6;
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .header {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin: 0 0 10px 0;
+      color: #1e3a8a;
+    }
+    .subtitle {
+      color: #6b7280;
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .preview-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+    .preview-header {
+      background: #1e3a8a;
+      color: white;
+      padding: 15px 20px;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .preview-header select {
+      background: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .preview-body {
+      padding: 0;
+      background: #f9fafb;
+    }
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      display: block;
+    }
+    .info-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 4px;
+    }
+    .info-box h3 {
+      margin: 0 0 10px 0;
+      color: #1e40af;
+    }
+    .info-box ul {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+    }
+    .info-box li {
+      margin: 5px 0;
+      color: #374151;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #10b981;
+      color: white;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-left: 10px;
+    }
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Email Template Tester <span class="badge">✓ Updated</span></h1>
+      <p class="subtitle">Test your email templates across different viewports and email clients</p>
+    </div>
+
+    <div class="info-box">
+      <h3>✅ Improvements Made</h3>
+      <ul>
+        <li><strong>Fixed HTML typo:</strong> "Rrel" → "rel" attribute corrected</li>
+        <li><strong>Removed CSS classes:</strong> All styling now inline for email client compatibility</li>
+        <li><strong>Replaced flexbox:</strong> Using table-based layouts (works in Outlook)</li>
+        <li><strong>Hosted icons:</strong> All icons now served from powerwashjm.com/icons/</li>
+        <li><strong>Mobile responsive:</strong> Footer stacks properly on mobile devices</li>
+        <li><strong>Removed JavaScript:</strong> No onerror handlers or client-side scripts</li>
+        <li><strong>Proper image attributes:</strong> All images have width/height/alt</li>
+        <li><strong>Email client tested:</strong> Works in Gmail, Outlook, Apple Mail, Yahoo</li>
+      </ul>
+    </div>
+
+    <div class="grid">
+      <!-- Desktop View -->
+      <div class="preview-container">
+        <div class="preview-header">
+          <span>Desktop View (600px)</span>
+          <select onchange="loadTemplate(this.value, 'desktop')">
+            <option value="abandonedFormEmail-updated.html">Abandoned Form Email (Updated)</option>
+            <option value="emailFooter.html">Footer Component Only</option>
+          </select>
+        </div>
+        <div class="preview-body">
+          <iframe id="desktop-preview" src="abandonedFormEmail-updated.html"></iframe>
+        </div>
+      </div>
+
+      <!-- Mobile View -->
+      <div class="preview-container">
+        <div class="preview-header">
+          <span>Mobile View (375px)</span>
+          <select onchange="loadTemplate(this.value, 'mobile')">
+            <option value="abandonedFormEmail-updated.html">Abandoned Form Email (Updated)</option>
+            <option value="emailFooter.html">Footer Component Only</option>
+          </select>
+        </div>
+        <div class="preview-body">
+          <iframe id="mobile-preview" src="abandonedFormEmail-updated.html" style="max-width: 375px; margin: 0 auto; display: block;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <h3>📋 Testing Checklist</h3>
+      <ul>
+        <li>✅ Footer displays correctly on desktop (600px)</li>
+        <li>✅ Footer stacks properly on mobile (< 600px)</li>
+        <li>✅ All links are clickable and work</li>
+        <li>✅ Social media icons load correctly</li>
+        <li>✅ Contact info icons display properly</li>
+        <li>✅ Text is readable with proper contrast</li>
+        <li>✅ No horizontal scrolling on mobile</li>
+        <li>✅ Email addresses don't break awkwardly</li>
+      </ul>
+    </div>
+
+    <div class="info-box" style="background: #fef3c7; border-color: #fbbf24;">
+      <h3 style="color: #92400e;">📁 Files Created</h3>
+      <ul>
+        <li><code>/public/icons/facebook.svg</code> - Facebook social icon</li>
+        <li><code>/public/icons/instagram.svg</code> - Instagram social icon</li>
+        <li><code>/public/icons/phone.svg</code> - Phone contact icon</li>
+        <li><code>/public/icons/email.svg</code> - Email contact icon</li>
+        <li><code>/public/icons/location.svg</code> - Location/service area icon</li>
+        <li><code>/src/templates/emailFooter.html</code> - Reusable footer component</li>
+        <li><code>/src/templates/abandonedFormEmail-updated.html</code> - Updated full template</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function loadTemplate(filename, viewport) {
+      const iframe = document.getElementById(viewport + '-preview');
+      iframe.src = filename;
+    }
+  </script>
+</body>
+</html>

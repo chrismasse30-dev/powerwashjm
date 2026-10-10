@@ -1,0 +1,51 @@
+# Robots.txt for J & M Power Washing and Holiday Lights
+User-agent: *
+Allow: /
+
+# Disallow employee/admin pages and non-public pages
+Disallow: /employee-login
+Disallow: /employee-dashboard
+Disallow: /create-employee
+Disallow: /create-sales-user
+Disallow: /quickmeasure
+Disallow: /quotes-dashboard
+Disallow: /access-requests
+Disallow: /complete-quote
+Disallow: /email-templates
+Disallow: /email-report
+Disallow: /popup-management
+Disallow: /gallery-management
+Disallow: /blog-management
+Disallow: /pricing-administration
+Disallow: /user-management
+Disallow: /sitemap-management
+Disallow: /website-analytics
+Disallow: /facebook-settings
+Disallow: /google-business-settings
+Disallow: /newsletter-signups
+Disallow: /chat-dashboard
+Disallow: /holiday-lights-admin
+Disallow: /approve-estimate
+
+# Allow all public service pages and town pages
+Allow: /house-washing
+Allow: /roof-cleaning
+Allow: /deck-cleaning
+Allow: /concrete-cleaning
+Allow: /gutter-cleaning
+Allow: /holiday-lights
+Allow: /commercial
+Allow: /hoa-condo-cleaning
+Allow: /financing
+Allow: /faq
+Allow: /about-us
+Allow: /privacy-policy
+Allow: /towns/
+Allow: /blog/
+Allow: /instant-estimate
+Allow: /get-quote
+Allow: /satisfaction-guarantee
+Allow: /sitemap
+
+# Sitemap location
+Sitemap: https://powerwashjm.com/sitemap.xml

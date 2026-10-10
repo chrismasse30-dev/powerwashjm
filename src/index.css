@@ -1,0 +1,376 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Typography System - Professional Font Setup */
+
+  /* Headings: Montserrat Bold with Fallbacks */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', 'Poppins', 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Body Text: Open Sans Regular with Fallbacks */
+  body, p, span, div, a, li, label, input, textarea, select, button {
+    font-family: 'Open Sans', 'Roboto', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Additional text elements */
+  blockquote, cite, code, pre, kbd, samp {
+    font-family: 'Open Sans', 'Roboto', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+  }
+
+  /* Root body defaults */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  @supports (padding: env(safe-area-inset-bottom)) {
+    body {
+      padding-bottom: env(safe-area-inset-bottom);
+    }
+  }
+
+  /* Z-Index System - Standardized Layering */
+  :root {
+    --z-base: 0;
+    --z-dropdown: 10;
+    --z-sticky: 20;
+    --z-breadcrumbs: 30;
+    --z-navigation: 40;
+    --z-banner: 50;
+    --z-modal-backdrop: 100;
+    --z-modal: 101;
+    --z-popover: 110;
+    --z-toast: 120;
+    --z-tooltip: 130;
+    --z-urgent: 9999;    /* For critical UI elements that must stay on top */
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-scroll-rtl {
+    display: inline-flex;
+    animation: scroll-rtl 30s linear infinite;
+  }
+
+  .animate-scroll-rtl-slow {
+    display: inline-flex;
+    animation: scroll-rtl 90s linear infinite;
+  }
+
+  @keyframes scroll-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  @media (max-width: 768px) {
+    .parallax-bg {
+      background-attachment: scroll;
+    }
+  }
+
+  .holiday-lights-border {
+    position: relative;
+    border: 4px solid transparent;
+    border-radius: 1rem;
+    background: white;
+  }
+
+  .holiday-lights-border::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .string-lights {
+    position: absolute;
+    pointer-events: none;
+    z-index: 15;
+  }
+
+  .string-lights.top {
+    top: -18px;
+    left: -18px;
+    right: -18px;
+    height: 30px;
+  }
+
+  .string-lights.bottom {
+    bottom: -18px;
+    left: -18px;
+    right: -18px;
+    height: 30px;
+  }
+
+  .string-lights.left {
+    left: -18px;
+    top: 12px;
+    bottom: 12px;
+    width: 30px;
+  }
+
+  .string-lights.right {
+    right: -18px;
+    top: 12px;
+    bottom: 12px;
+    width: 30px;
+  }
+
+  .light-wire {
+    position: absolute;
+    background: #1a1a1a;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  }
+
+  .string-lights.top .light-wire,
+  .string-lights.bottom .light-wire {
+    height: 2px;
+    width: calc(100% - 20px);
+    left: 10px;
+    top: 8px;
+  }
+
+  .string-lights.left .light-wire,
+  .string-lights.right .light-wire {
+    width: 2px;
+    height: 100%;
+    left: 8px;
+  }
+
+  .holiday-light {
+    position: absolute;
+    width: 14px;
+    height: 18px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    animation: twinkle 2s ease-in-out infinite;
+  }
+
+  .holiday-light::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 6px;
+    background: #2a2a2a;
+    border-radius: 1px;
+  }
+
+  .holiday-light.red {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee0000 50%, #aa0000 100%);
+    animation-delay: 0s;
+  }
+
+  .holiday-light.yellow {
+    background: linear-gradient(135deg, #ffd93d 0%, #ffb700 50%, #ff8c00 100%);
+    animation-delay: 0.3s;
+  }
+
+  .holiday-light.green {
+    background: linear-gradient(135deg, #6bcf7f 0%, #00cc44 50%, #009933 100%);
+    animation-delay: 0.6s;
+  }
+
+  .holiday-light.blue {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 50%, #0652a8 100%);
+    animation-delay: 0.9s;
+  }
+
+  @keyframes twinkle {
+    0%, 100% {
+      filter: brightness(1) drop-shadow(0 0 3px currentColor);
+      transform: scale(1);
+    }
+    50% {
+      filter: brightness(1.4) drop-shadow(0 0 8px currentColor);
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .animate-slideUp {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  /* Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    .parallax-bg {
+      background-attachment: scroll !important;
+    }
+  }
+
+  /* Screen reader only content */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Custom animations for UX improvements */
+  @keyframes bounce-in {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes scale-in {
+    0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+  }
+
+  .animate-bounce-in {
+    animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s both;
+  }
+
+  /* Custom range slider styling for night mode */
+  input[type="range"].slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  input[type="range"].slider-thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  input[type="range"].slider-thumb::-webkit-slider-thumb:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+  }
+
+  input[type="range"].slider-thumb::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #3b82f6;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  input[type="range"].slider-thumb::-moz-range-thumb:hover {
+    background: #2563eb;
+    transform: scale(1.1);
+  }
+}

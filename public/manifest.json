@@ -1,0 +1,42 @@
+{
+  "name": "J&M Power Washing & Holiday Lights",
+  "short_name": "J&M Power Washing",
+  "description": "Professional power washing and holiday light installation in Rhode Island & Massachusetts",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e3a8a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logos/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logos/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "Get Quote",
+      "short_name": "Quote",
+      "description": "Get a free estimate",
+      "url": "/#quote",
+      "icons": [{ "src": "/logos/logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Call Us",
+      "short_name": "Call",
+      "description": "Call (401) 595-0726",
+      "url": "tel:+14015950726",
+      "icons": [{ "src": "/logos/logo.png", "sizes": "96x96" }]
+    }
+  ]
+}

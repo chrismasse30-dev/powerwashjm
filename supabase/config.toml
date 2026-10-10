@@ -1,0 +1,104 @@
+[project]
+id = "default"
+
+[functions."approve-estimate"]
+verify_jwt = false
+
+[functions."create-gbp-post"]
+verify_jwt = true
+
+[functions."exchange-gbp-auth-code"]
+verify_jwt = true
+
+[functions."fetch-ga4-data"]
+verify_jwt = true
+
+[functions."generate-blog-content"]
+verify_jwt = true
+
+[functions."generate-sitemap"]
+verify_jwt = true
+
+[functions."get-ip-location"]
+verify_jwt = false
+
+[functions."mailjet-webhook"]
+verify_jwt = false
+
+[functions."optimize-image"]
+verify_jwt = true
+
+[functions."post-photo-to-gbp"]
+verify_jwt = false
+
+[functions."post-to-facebook"]
+verify_jwt = false
+
+[functions."refresh-facebook-token"]
+verify_jwt = true
+
+[functions."reply-to-gbp-review"]
+verify_jwt = true
+
+[functions."retry-confirmation-emails"]
+verify_jwt = true
+
+[functions."send-abandoned-form-email"]
+verify_jwt = false
+
+[functions."send-chat-email-notification"]
+verify_jwt = true
+
+[functions."send-customer-autoresponse"]
+verify_jwt = false
+
+[functions."send-customer-estimate-mailjet"]
+verify_jwt = true
+
+[functions."send-customer-estimate-zeptomail"]
+verify_jwt = true
+
+[functions."send-estimate-followup"]
+verify_jwt = true
+
+[functions."send-ga4-event"]
+verify_jwt = true
+
+[functions."send-instant-quote-confirmation"]
+verify_jwt = true
+
+[functions."send-measurement-email"]
+verify_jwt = true
+
+[functions."send-password-reset-email"]
+verify_jwt = true
+
+[functions."send-quote-notification"]
+verify_jwt = false
+
+[functions."send-quote-notification-brevo"]
+verify_jwt = true
+
+[functions."send-sold-quote-notification"]
+verify_jwt = true
+
+[functions."sqft-lookup"]
+verify_jwt = true
+
+[functions."submit-indexnow"]
+verify_jwt = true
+
+[functions."sync-brevo-contact"]
+verify_jwt = true
+
+[functions."sync-gbp-reviews"]
+verify_jwt = true
+
+[functions."zeptomail-webhook"]
+verify_jwt = false
+
+[functions."send-estimate-resend"]
+verify_jwt = true
+
+[functions."test-email-provider"]
+verify_jwt = false

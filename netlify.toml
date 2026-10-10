@@ -1,0 +1,171 @@
+[build]
+command = "npx vite build && node prerender-ssr.mjs && node prerender-blog-posts.mjs"
+publish = "dist"
+
+[build.environment]
+NODE_VERSION = "20.18.0"
+VITE_SUPABASE_URL = "https://hlehvmcuwklbgvydrddt.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhsZWh2bWN1d2tsYmd2eWRyZGR0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MTkxMzEsImV4cCI6MjA3ODE5NTEzMX0.x-wG9sMF1D-gr7TODEQmESkYsZdWoiKOLqmFjItVSVg"
+SITE_URL = "https://powerwashjm.com"
+
+[[redirects]]
+from = "http://powerwashjm.com/*"
+to = "https://powerwashjm.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://www.powerwashjm.com/*"
+to = "https://powerwashjm.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://www.powerwashjm.com/*"
+to = "https://powerwashjm.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "https://m.powerwashjm.com/*"
+to = "https://powerwashjm.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "http://m.powerwashjm.com/*"
+to = "https://powerwashjm.com/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/sitemap.xml"
+to = "/sitemap.xml"
+status = 200
+
+[[redirects]]
+from = "/robots.txt"
+to = "/robots.txt"
+status = 200
+
+[[redirects]]
+from = "/fleet-washing"
+to = "/commercial/fleet-washing"
+status = 301
+
+[[redirects]]
+from = "/commercial/maintenance-programs/platinum-monthly"
+to = "/commercial/maintenance-programs/monthly-maintenance"
+status = 301
+
+[[redirects]]
+from = "/commercial/maintenance-programs/gold-quarterly"
+to = "/commercial/maintenance-programs/quarterly-maintenance"
+status = 301
+
+[[redirects]]
+from = "/commercial/maintenance-programs/silver-seasonal"
+to = "/commercial/maintenance-programs/seasonal-maintenance"
+status = 301
+
+[[redirects]]
+from = "/platinum-monthly"
+to = "/commercial/maintenance-programs/monthly-maintenance"
+status = 301
+
+[[redirects]]
+from = "/gold-quarterly"
+to = "/commercial/maintenance-programs/quarterly-maintenance"
+status = 301
+
+[[redirects]]
+from = "/silver-seasonal"
+to = "/commercial/maintenance-programs/seasonal-maintenance"
+status = 301
+
+[[redirects]]
+from = "/blog"
+to = "/blog/index.html"
+status = 200
+
+[[redirects]]
+from = "/blog/*"
+to = "/blog/:splat/index.html"
+status = 200
+
+[[redirects]]
+from = "/lights"
+to = "/holiday-lights/"
+status = 301
+
+[[redirects]]
+from = "/home"
+to = "/"
+status = 301
+
+[[redirects]]
+from = "/about_us"
+to = "/about-us/"
+status = 301
+
+[[redirects]]
+from = "/concrete_cleaning"
+to = "/concrete-cleaning/"
+status = 301
+
+[[redirects]]
+from = "/house_soft_wash"
+to = "/house-washing/"
+status = 301
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+force = false
+
+[[headers]]
+for = "/assets/*.js"
+
+[headers.values]
+Content-Type = "application/javascript; charset=utf-8"
+Cache-Control = "public, max-age=31536000, immutable"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/assets/*.css"
+
+[headers.values]
+Content-Type = "text/css; charset=utf-8"
+Cache-Control = "public, max-age=31536000, immutable"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/*.js"
+
+[headers.values]
+Content-Type = "application/javascript; charset=utf-8"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/*.css"
+
+[headers.values]
+Content-Type = "text/css; charset=utf-8"
+X-Content-Type-Options = "nosniff"
+
+[[headers]]
+for = "/index.html"
+
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+for = "/*"
+
+[headers.values]
+X-Frame-Options = "DENY"
+X-Content-Type-Options = "nosniff"
+Referrer-Policy = "strict-origin-when-cross-origin"
+Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+X-XSS-Protection = "1; mode=block"

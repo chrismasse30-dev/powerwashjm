@@ -1,0 +1,68 @@
+# Netlify redirects for SPA routing
+
+# Force HTTPS
+http://powerwashjm.com/* https://powerwashjm.com/:splat 301!
+http://www.powerwashjm.com/* https://powerwashjm.com/:splat 301!
+https://www.powerwashjm.com/* https://powerwashjm.com/:splat 301!
+
+# Static files - serve directly (not through SPA)
+/sitemap.xml    /sitemap.xml    200
+/robots.txt     /robots.txt     200
+/manifest.json  /manifest.json  200
+/BingSiteAuth.xml /BingSiteAuth.xml 200
+/llms.txt       /llms.txt       200
+
+# Redirect old URLs to canonical locations (301 = permanent)
+/fleet-washing  /commercial/fleet-washing  301
+/commercial/maintenance-programs/platinum-monthly  /commercial/maintenance-programs/monthly-maintenance  301
+/commercial/maintenance-programs/gold-quarterly  /commercial/maintenance-programs/quarterly-maintenance  301
+/commercial/maintenance-programs/silver-seasonal  /commercial/maintenance-programs/seasonal-maintenance  301
+/platinum-monthly  /commercial/maintenance-programs/monthly-maintenance  301
+/gold-quarterly  /commercial/maintenance-programs/quarterly-maintenance  301
+/silver-seasonal  /commercial/maintenance-programs/seasonal-maintenance  301
+
+# SPA-only routes (not prerendered) - serve index.html with 200
+/mobile-menu              /index.html  200
+/mobile-menu/services     /index.html  200
+/mobile-menu/company      /index.html  200
+/commercial-landing       /index.html  200
+/quote                    /index.html  200
+/complete-quote           /index.html  200
+/customer-portal          /index.html  200
+/employee-login           /index.html  200
+/employee-dashboard       /index.html  200
+/create-employee          /index.html  200
+/create-sales-user        /index.html  200
+/quotes-dashboard         /index.html  200
+/quickmeasure-email-report /index.html  200
+/email-report             /index.html  200
+/quickmeasure             /index.html  200
+/google-drive-import      /index.html  200
+/gallery-management       /index.html  200
+/user-management          /index.html  200
+/chat-dashboard           /index.html  200
+/newsletter-signups       /index.html  200
+/website-analytics        /index.html  200
+/google-review-upload     /index.html  200
+/pricing-administration   /index.html  200
+/facebook-settings        /index.html  200
+/google-business-settings /index.html  200
+/google-business-callback /index.html  200
+/email-templates          /index.html  200
+/sitemap-management       /index.html  200
+/popup-management         /index.html  200
+/approve-estimate         /index.html  200
+/blog-management          /index.html  200
+/blog-management/*        /index.html  200
+/footer-test              /index.html  200
+/holiday-lights-admin     /index.html  200
+/instant-estimate         /index.html  200
+/get-quote                /index.html  200
+
+# Wildcard 404s for dynamic segments - invalid slugs get 404
+# (Netlify serves existing prerendered static files first, so real pages keep working)
+/towns/*          /404.html  404
+/holiday-lights/* /404.html  404
+
+# Final catch-all: anything not matched above is a 404
+/*    /404.html   404
